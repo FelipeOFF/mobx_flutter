@@ -62,7 +62,16 @@ class _HomePageState extends State<HomePage> {
                     onChanged: controller.client.changeCpf,
                     onErrorText: controller.validateCpf,
                   );
-                })
+                }),
+                SizedBox(
+                  height: 20,
+                ),
+                Observer(builder: (_) {
+                  return RaisedButton(
+                    onPressed: controller.isValid ? () {} : null,
+                    child: Text("Salvar"),
+                  );
+                }),
               ],
             ),
           ),
