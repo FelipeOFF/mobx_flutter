@@ -28,6 +28,8 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  mobx_codegen:
+  build_runner:
   flutter_test:
     sdk: flutter
 

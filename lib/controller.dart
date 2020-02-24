@@ -1,15 +1,26 @@
 import 'package:mobx/mobx.dart';
+part 'controller.g.dart';
 
-class Controller {
-  var counter = Observable(0);
+class Controller = ControllerBase with _$Controller;
 
-  Action increment;
+abstract class ControllerBase with Store{
+  
+  @observable
+  String name = '';
 
-  Controller() {
-    increment = Action(_increment);
+  @observable
+  String lastname = '';
+
+  @computed
+  String get completName => "$name $lastname";
+
+  @action
+  changeName(String newName) {
+    name = newName;
   }
 
-  _increment() {
-    counter.value = counter.value+1;
+  @action
+  changeLastName(String newLastName) {
+    lastname = newLastName;
   }
 }

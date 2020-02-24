@@ -13,24 +13,31 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text("MobX"),
         ),
-        body: Center(
+        body: Padding(padding: EdgeInsets.symmetric(horizontal: 80), child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              TextField(
+                decoration: InputDecoration(labelText: 'Nome'),
+                onChanged: controller.changeName,
+              ),
+              SizedBox(height: 20,),
+              TextField(
+                decoration: InputDecoration(labelText: 'Sobrenome'),
+                onChanged: controller.changeLastName,
+              ),
+              SizedBox(height: 20,),
               Observer(
-                builder: (BuildContext context) {
-                  return Text(
-                    '${controller.counter.value}',
-                    style: Theme.of(context).textTheme.display1,
-                  );
+                builder: (_) {
+                  return Text('${controller.completName}');
                 },
               )
             ],
           ),
-        ),
+        ),),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            controller.increment();
+            
           },
           child: Icon(Icons.add),
         ),
