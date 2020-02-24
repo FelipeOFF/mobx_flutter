@@ -6,7 +6,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: child,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Formulario"),
+        ),
+        body: Center(),
+      ),
     );
   }
 }
